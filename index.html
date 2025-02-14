@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>esercitazioneJS2</title>
+    
+    
+</head>
+
+<body id = "b1">
+
+
+    <button onclick="stampaHelloWorld()">stampa hello world</button>
+    <p id="p1"></p>
+
+    <button onclick="aggiungiTesto()">Aggiungi testo</button>
+    <p id="p2">TESTO1</p>
+
+    <button onclick="MostraNascondi()">Mostra/Nascondi</button>
+    <p id="p3">ora mi vedi se clicchi scompaio</p>
+
+    <button onclick="contaClick()">Conta click</button>
+    <p id="p4">numero di volte in cui mi hai cliccato : <span id="span1">0</span></p>
+
+    <button onclick="cambiaImg()">Cambia immagine</button>
+    <img id="img1" src="download1.jpg">
+
+    <button onclick="calmbiaStyle()">Cambia Stile</button>
+    <p id="p5">TESTO2</p>
+
+    <button onclick="piuFont()">+</button>
+    <button onclick="menoFont()">-</button>
+
+
+    <p id = "p6">TESTO3</p>
+
+    <button onclick="cambiaSfondo()">Cambia Sfondo</button>
+    <button onclick="ripristina()">ripristina pagina</button>
+
+
+    <script>
+        function stampaHelloWorld() {
+            document.getElementById("p1").textContent = " hello world"
+
+        }
+
+        function aggiungiTesto() {
+            let x = document.getElementById("p2")
+            x.textContent += " ora ho aggiunto questo testo"
+        }
+
+        function MostraNascondi() {
+            let x = document.getElementById("p3")
+            if (x === "") {
+                document.getElementById("p3").textContent = "ora mi vedi se clicchi scompaio"
+            } else {
+                document.getElementById("p3").textContent = " "
+            }
+
+        }
+        let click = 0
+        function contaClick() {
+            click++
+            document.getElementById("span1").textContent = click
+        }
+
+        function cambiaImg() {
+            document.getElementById("img1").src = "download2.jpg"
+
+        }
+        let conta = 0
+        function calmbiaStyle() {
+            conta++
+            x = document.getElementById("p5")
+            switch (conta) {
+                case 1:
+                    x.style.color = "red"
+                    x.style.backgroundColor = "yellow"
+                    x.style.border = "thick solid #000000"
+                    break
+                case 2:
+                    x.style.color = "yellow"
+                    x.style.backgroundColor = "blue"
+                    x.style.border = "thick double #000000"
+                    break
+                case 3:
+                    x.style.color = "blue"
+                    x.style.backgroundColor = "green"
+                    x.style.border = "thick dashed #000000"
+                    break
+                case 4:
+                    x.style.color = "green"
+                    x.style.backgroundColor = "purple"
+                    x.style.border = "thick dotted #000000"
+                    break
+                case 5:
+                    conta = 1
+                    x.style.color = ""
+                    x.style.backgroundColor = ""
+                    x.style.border = ""
+                    break
+
+            }
+
+
+
+        }
+        fontSize = 16
+        function piuFont(){
+            fontSize += 5
+            document.getElementById("p6").style.fontSize = fontSize + "px"
+        }
+
+        function menoFont(){
+            fontSize -= 5
+            document.getElementById("p6").style.fontSize = fontSize + "px"
+        }
+
+        function cambiaSfondo(){
+            const randomColor = "#" + parseInt(Math.random()*16777215).toString(16)
+
+            document.body.style.backgroundColor =  randomColor
+        }
+
+        function ripristina(){
+            document.getElementById("p1").textContent = ""
+            document.getElementById("p2").textContent = "TESTO1"
+            document.getElementById("p3").textContent = "ora mi vedi se clicchi scompaio"
+            click = 0
+            document.getElementById("span1").textContent = click
+            document.getElementById("img1").src = "download1.jpg"
+            conta = 0
+            document.getElementById("p5").style = ""
+            document.getElementById("p6").style.fontSize = 16 + "px"
+            document.body.style.backgroundColor = ""
+            
+
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>
